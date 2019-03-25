@@ -33,7 +33,7 @@ class Downscale(SimpleManipulator):
 
     def recursivePadDownscale(self, targetHeight, factor=2):
         """
-        Downscale BI using fixed nearest neighbor downscaling
+        Downscale BI using fixed max pool downscaling
         interplaced with in place array padding operations
         """
         originalHeight, originalWidth = self.height, self.width
@@ -58,7 +58,7 @@ class Downscale(SimpleManipulator):
             self.padArray(self.image,
                 [0 for x in range(len(self.image[0]))],
                 padY)
-            self.nearestNeighborDownscale(factor)
+            self.maxPoolDownscale(factor)
 
             #Enlarge active region
             self.shave()
@@ -67,10 +67,10 @@ class Downscale(SimpleManipulator):
         self.height, self.width = len(self.image), len(self.image[0])
         return
 
-    def nearestNeighborDownscale(self, factor):
+    def maxPoolDownscale(self, factor):
         """
         Use copy/assignment to generate a BIA that has been downscaled
-        using nearest neighbor by factor
+        using max pool of kernel size by factor
         """
         #Initialize result to the correct size
         result = [
