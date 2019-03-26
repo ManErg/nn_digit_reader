@@ -22,11 +22,6 @@ Arguments:
          training
         -Samples named img<number of files>.<extension> up through
          <number of tests>
-    -Number of folds
-        -i.e. '6'
-        -Number of folds for k-fold cross validation
-        -should be some fraction of the total number of training
-         samples
     -Epochs
         -i.e. '10'
         -The number of training epochs
