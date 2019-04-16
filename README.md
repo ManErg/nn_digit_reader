@@ -39,6 +39,7 @@ Call 'digit_reader.py' with python3. Parameters will be listed if not called cor
 
 #### Prerequisites
 Python 3
+
 imageio
 
 #### Parameters
